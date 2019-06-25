@@ -253,7 +253,7 @@ namespace client
 
                 // random chance to retrieve a safe code.
                 var chance = _random.Next(1, 100);
-                if (true)
+                if (chance >= 85)
                 {
                     // assign a random safe code.
                     var code = _random.Next(2345, 8713);
