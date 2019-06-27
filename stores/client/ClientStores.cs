@@ -69,6 +69,14 @@ namespace client
             _allStores.TryAdd(17, new Store() { StoreId = 17, PedLocation = new Vector3(1166.32F, 2710.57F, 38.16F), SafeLocation = new Vector3(1169.24F, 2717.65F, 37.16F), PedHeading = 177.47F });
             _allStores.TryAdd(18, new Store() { StoreId = 18, PedLocation = new Vector3(1134.12F, -982.1F, 46.42F), SafeLocation = new Vector3(1126.63F, -980.18F, 45.42F), PedHeading = 277.62F });
 
+            foreach (var store in _allStores)
+            {
+                var blip = World.CreateBlip(store.Value.PedLocation);
+                blip.Sprite = BlipSprite.Store;
+                blip.Name = "Convenience Store";
+                blip.Color = BlipColor.Green;
+            }
+
             // handles deleting a ped.
             EventHandlers["store:removePed"] += new Action<int>(NetworkRemovePed);
             // handles syncing animations
