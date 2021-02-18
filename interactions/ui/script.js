@@ -56,7 +56,7 @@ function hide() {
  */
 function highlight(state) {
     if (element === undefined) element = document.getElementById('shape');
-    element.style.setProperty('--border-color', (state === true ? 'turquoise' : '#000'));
+    element.style.setProperty('--border-color', (Boolean(state) === true ? 'turquoise' : '#000'));
 }
 
 /**
