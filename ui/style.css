@@ -1,0 +1,47 @@
+body {
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.shape {
+    --border-color: #000;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 32px;
+    height: 32px;
+    border: solid 2px var(--border-color);
+    border-radius:  75% 15%;
+    transform: rotate(45deg);
+}
+
+.shape:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: solid 2px var(--border-color);
+    border-radius: 50%;
+    left: 6px;
+    top: 6px;
+}
+
+.options {
+    visibility: hidden;
+
+    top: 53.5%;
+    left: 52%;
+    position: absolute;
+
+    color: turquoise;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 24px;
+}
+
+.oh:hover {
+    font-weight: bold;
+    cursor: default;
+}
