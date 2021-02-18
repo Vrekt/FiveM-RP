@@ -1,2 +1,2 @@
 # FiveM-RP
-A collection of personal scripts for an RP server.
+A collection of scripts and helpful things for a FiveM server.
