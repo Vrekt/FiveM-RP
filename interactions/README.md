@@ -35,6 +35,11 @@ Exports["interactions"].option(1, "Do something");
 Exports["interactions"].option(2, "Do something else");
 ```
 
+### To reset options
+```csharp
+Exports["interactions"].reset();
+```
+
 ### To listen for option clicks
 ```csharp
             EventHandlers["interactions:clicked"] += new Action<object>(obj =>
