@@ -5,6 +5,8 @@ NoPixel style like interactions with the 'eye' icon.
 - Highlightable
 - Easy API
 
+<img src="https://i.imgur.com/VboENgQ.png">
+
 # How to use it (dev)
 ### To highlight the interaction eye icon
 For example, if the player is infront of a interactable ped.
