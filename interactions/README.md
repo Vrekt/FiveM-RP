@@ -8,6 +8,17 @@ NoPixel style like interactions with the 'eye' icon.
 <img src="https://i.imgur.com/VboENgQ.png">
 
 # How to use it (dev)
+
+### Config
+By default the interaction is automatically shown for you based on the key you set in the fxmanifest.lua.
+
+You can manually show or hide the interaction like so:
+```csharp
+Exports["interactions"].show();
+Exports["interactions"].hide();
+```
+                
+
 ### To highlight the interaction eye icon
 For example, if the player is infront of a interactable ped.
 
