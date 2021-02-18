@@ -7,7 +7,7 @@ NoPixel style like interactions with the 'eye' icon.
 
 # How to use it (dev)
 ### To highlight the interaction eye icon
-For example, if the player is infront of a interatable ped.
+For example, if the player is infront of a interactable ped.
 
 ```csharp
 // highlight
