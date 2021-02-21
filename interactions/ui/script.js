@@ -35,6 +35,12 @@ let resource;
 let element;
 
 /**
+ * If the element is highlighted
+ * @type {boolean} state
+ */
+let highlighted = false;
+
+/**
  * Show the interaction
  */
 function show() {
@@ -56,7 +62,9 @@ function hide() {
  */
 function highlight(state) {
     if (element === undefined) element = document.getElementById('shape');
-    element.style.setProperty('--border-color', (Boolean(state) === true ? 'turquoise' : '#000'));
+    element.style.setProperty('--border-color', (state === "True" ? 'steelblue' : '#000'));
+
+    highlighted = (state === "True");
 }
 
 /**
@@ -81,8 +89,10 @@ function reset() {
  * Show the interaction options
  */
 function interactionClicked() {
-    document.getElementById('options').style.visibility = showing ? 'hidden' : 'visible';
-    showing = !showing;
+    if (highlighted) {
+        document.getElementById('options').style.visibility = showing ? 'hidden' : 'visible';
+        showing = !showing;
+    }
 }
 
 /**

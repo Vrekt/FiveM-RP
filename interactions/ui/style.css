@@ -33,10 +33,10 @@ body {
     visibility: hidden;
 
     top: 53.5%;
-    left: 52%;
+    left: 50%;
     position: absolute;
 
-    color: turquoise;
+    color: darkcyan;
     font-family: 'Noto Sans SC', sans-serif;
     font-size: 24px;
 }

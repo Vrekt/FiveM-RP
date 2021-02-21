@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
@@ -7,6 +8,7 @@ using static BasicJson.NuiJson;
 
 namespace interactions2
 {
+    [SuppressMessage("ReSharper", "SuggestBaseTypeForParameter")]
     public class InteractionsClient : BaseScript
     {
         /// <summary>
@@ -24,15 +26,11 @@ namespace interactions2
         /// </summary>
         private bool _isShowingInteraction;
 
-        public InteractionsClient()
-        {
-            EventHandlers["onClientResourceStart"] += new Action<string>(OnClientResourceStart);
-        }
-
         /// <summary>
         /// Invoked when the interactions resource is started.
         /// </summary>
         /// <param name="resourceName">the resource name</param>
+        [EventHandler("onClientResourceStart")]
         private void OnClientResourceStart(string resourceName)
         {
             if (GetCurrentResourceName() != resourceName) return;
@@ -47,6 +45,7 @@ namespace interactions2
         /// </summary>
         private void LoadConfiguration(string resourceName)
         {
+
             _listenForInteraction =
                 bool.Parse(GetResourceMetadata(resourceName, "listen_for_interaction_key", 0));
             _interactionKey = int.Parse(GetResourceMetadata(resourceName, "interaction_key", 0));
@@ -75,23 +74,24 @@ namespace interactions2
         /// <summary>
         /// Register NUI callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private static void RegisterCallbacks()
         {
             RegisterNuiCallbackType("clicked");
-            EventHandlers["__cfx_nui:clicked"] += new Action<IDictionary<string, object>, CallbackDelegate>(
-                (data, cb) =>
-                {
-                    if (data.TryGetValue("option", out var option))
-                    {
-                        TriggerEvent("interactions:clicked", option);
-                    }
-                    else
-                    {
-                        cb("error");
-                    }
+        }
 
-                    cb("ok");
-                });
+        [EventHandler("__cfx_nui:clicked")]
+        private void OnNuiClicked(Dictionary<string, object> data, CallbackDelegate cb) 
+        {
+            if (data.TryGetValue("option", out var option))
+            {
+                TriggerEvent("interactions:clicked_" + option, option);
+            }
+            else
+            {
+                cb("error");
+            }
+
+            cb("ok");
         }
 
         /// <summary>

@@ -10,7 +10,6 @@ client_script 'interactions.net.dll'
 ui_page './ui/ui.html'
 
 files {
-    'Newtonsoft.Json.dll',
     'BasicJson.dll',
     './ui/ui.html',
     './ui/style.css',
