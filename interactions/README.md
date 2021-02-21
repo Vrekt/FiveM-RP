@@ -47,13 +47,6 @@ The event for option clicks is `interactions:clicked_OPTIONNUMBER`, for example 
 ```csharp
             EventHandlers["interactions:clicked_1"] += new Action<object>(obj =>
             {
-                var optionClicked = (int) obj;
-                if (optionClicked == 1)
-                {
-                    Option1Clicked();
-                } else if (optionClicked == 2)
-                {
-                    Option2Clicked();
-                }
+                Option1Clicked();
             }); 
 ```
