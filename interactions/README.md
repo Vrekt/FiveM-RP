@@ -41,8 +41,11 @@ Exports["interactions"].reset();
 ```
 
 ### To listen for option clicks
+
+The event for option clicks is `interactions:clicked_OPTIONNUMBER`, for example `interactions:clicked_1`, `interactions:clicked_2` etc.
+
 ```csharp
-            EventHandlers["interactions:clicked"] += new Action<object>(obj =>
+            EventHandlers["interactions:clicked_1"] += new Action<object>(obj =>
             {
                 var optionClicked = (int) obj;
                 if (optionClicked == 1)
